@@ -4,6 +4,7 @@ Spendly is a modern and responsive expense tracking web application that helps u
 
 The application provides an interactive dashboard where users can track their spending, manage expenses, analyze spending habits, and visualize financial data using charts.
 
+Live Link: https://spendlly.vercel.app/
 ---
 
 ## ✨ Features
