@@ -1,16 +1,62 @@
-# React + Vite
+# 💰 Spendly - Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Spendly is a modern and responsive expense tracking web application that helps users manage their income and daily expenses in one place.
 
-Currently, two official plugins are available:
+The application provides an interactive dashboard where users can track their spending, manage expenses, analyze spending habits, and visualize financial data using charts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 💳 Expense Management
 
-## Expanding the ESLint configuration
+- Add new expenses
+- Edit existing expenses
+- Delete expenses
+- Clear all expenses
+- Add expense date, category, description, and amount
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔍 Search, Filter & Sort
+
+- Search expenses by keywords
+- Filter expenses by category
+- Sort expenses by:
+  - Date
+  - Category
+  - Description
+  - Amount
+
+### 📊 Dashboard Analytics
+
+The dashboard provides an overview of:
+
+- Total spent amount
+- Monthly income
+- Remaining balance
+- Top spending category
+- Daily average spending
+- Recent transactions
+
+### 📈 Data Visualization
+
+Interactive charts are used to visualize:
+
+- Spending by category
+- Daily spending trends
+
+### 🌙 Dark Mode
+
+- Light and dark theme support
+- Theme preference is saved using Local Storage
+- Smooth theme transitions
+
+### 🇮🇳 Indian Currency Support
+
+All monetary values are formatted using Indian Rupees.
+
+Example:
+
+```text
+₹1,000
+₹25,500
+₹1,00,000
