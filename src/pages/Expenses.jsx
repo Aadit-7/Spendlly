@@ -178,7 +178,7 @@ function Expenses() {
               Manage your spending
             </p>
 
-            <h1 className="mt-1 text-3xl font-bold tracking-tight text-slate-900">
+            <h1 className="mt-1 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
               Expense Management
             </h1>
 
