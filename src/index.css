@@ -2,6 +2,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* =========================================
+   GLOBAL
+========================================= */
+
 * {
   box-sizing: border-box;
 }
@@ -43,10 +47,18 @@ body {
     color 0.3s ease;
 }
 
+/* =========================================
+   DARK MODE
+========================================= */
+
 html.dark body {
   background-color: #020617;
   color: #f8fafc;
 }
+
+/* =========================================
+   BUTTONS
+========================================= */
 
 button {
   cursor: pointer;
@@ -56,6 +68,10 @@ button:disabled {
   cursor: not-allowed;
 }
 
+/* =========================================
+   TEXT SELECTION
+========================================= */
+
 ::selection {
   background-color: #1e293b;
   color: white;
@@ -64,4 +80,35 @@ button:disabled {
 html.dark ::selection {
   background-color: #3b82f6;
   color: white;
+}
+
+/* =========================================
+   THEME SWITCH ANIMATION
+========================================= */
+
+/*
+  Disable the browser's default View Transition
+  animations.
+
+  react-theme-switch-animation controls the
+  actual animation.
+*/
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/*
+  Make sure the new theme appears above the
+  previous theme during the transition.
+*/
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
 }

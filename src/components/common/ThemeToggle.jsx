@@ -1,7 +1,6 @@
 import { Moon, Sun } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  ThemeAnimationDirection,
   ThemeAnimationType,
   useModeAnimation,
 } from "react-theme-switch-animation";
@@ -16,23 +15,24 @@ function ThemeToggle() {
 
   const { ref, toggleSwitchTheme } = useModeAnimation({
     animationType: ThemeAnimationType.QR_SCAN,
-
-    direction: ThemeAnimationDirection.LTR,
-
     duration: 750,
-
     globalClassName: "dark",
-
     isDarkMode: isDark,
 
-    onDarkModeChange: () => {
-      dispatch(toggleTheme());
+    onDarkModeChange: (newIsDark) => {
+      /*
+       * Keep Redux in sync with the animation library.
+       */
+      if (newIsDark !== isDark) {
+        dispatch(toggleTheme());
+      }
     },
   });
 
   return (
     <button
       ref={ref}
+      type="button"
       onClick={toggleSwitchTheme}
       className="
         relative
