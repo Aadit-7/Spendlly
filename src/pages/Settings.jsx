@@ -1,26 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
-
 import { useState } from "react";
-
 import ConfirmModal from "../components/common/ConfirmModal";
-
 import PageLayout from "../components/layout/PageLayout";
-
 import IncomeSettings from "../components/settings/IncomeSettings";
-
 import CategorySettings from "../components/settings/CategorySettings";
-
 import DataManagement from "../components/settings/DataManagement";
-
 import MultiUserSettings from "../components/settings/MultiUserSettings";
-
 import { expenseCategories } from "../data/intialData";
-
 import { toast } from "react-toastify";
-
 import { setMonthlyIncome, clearExpenses } from "../store/expenseSlice";
-
-import { exportExpensesToCSV } from "../utils/exportCSV";
+import { exportExpensesToPDF } from "../utils/exportCSV";
 
 function Settings() {
   const { expenses = [], monthlyIncome = 0 } = useSelector(
@@ -31,11 +20,19 @@ function Settings() {
 
   const dispatch = useDispatch();
 
+  // --------------------------------
+  // Save monthly income
+  // --------------------------------
+
   const handleSaveIncome = (income) => {
     dispatch(setMonthlyIncome(income));
 
     toast.success("Monthly income updated successfully");
   };
+
+  // --------------------------------
+  // Clear expenses
+  // --------------------------------
 
   const handleClearExpenses = () => {
     setIsClearModalOpen(true);
@@ -49,12 +46,21 @@ function Settings() {
     setIsClearModalOpen(false);
   };
 
-  const handleExport = () => {
-    exportExpensesToCSV(expenses);
+  // --------------------------------
+  // Export expenses
+  // --------------------------------
 
-    if (expenses.length > 0) {
-      toast.success("Expenses exported successfully");
+  const handleExport = () => {
+    if (!expenses.length) {
+      toast.info("There are no expenses to export.");
+
+      return;
     }
+
+    // Pass BOTH expenses and monthly income
+    exportExpensesToPDF(expenses, monthlyIncome);
+
+    toast.success("Expenses exported as PDF successfully");
   };
 
   return (
